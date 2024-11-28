@@ -1,0 +1,17 @@
+<launch>
+    <!-- 启动 roslaunch 后，先启动 ROS 节点 -->
+    
+    <!-- 启动节点的例子 -->
+    <node name="ArUco_Detection" pkg="aruco_detection" type="aruco_detect.py" output="screen">
+        <!-- 传递给节点的参数 -->
+        <!-- 例如，如果你有一些参数需要传递给节点，可以在这里添加 -->
+        <param name="some_param" value="some_value" />
+    </node>
+
+    <!-- 如果需要启动其他 ROS 节点，例如相机节点或其他节点，可以在这里添加 -->
+    <!-- 例如，启动 RealSense 相机节点 -->
+    <node name="realsense_camera" pkg="realsense2_camera" type="rs_camera.launch" output="screen">
+        <!-- 传递相机的参数 -->
+        <param name="camera_info_url" value="file:///home/user/camera_calibration.yaml" />
+    </node>
+</launch>
